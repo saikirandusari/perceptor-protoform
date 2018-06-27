@@ -12,3 +12,5 @@ source ../common/parse-image-registry.sh "../openshift/image-registry.json"
 source ../common/protoform.yaml.sh
 
 oc create -f protoform.yaml
+
+rm -rf protoform.yaml

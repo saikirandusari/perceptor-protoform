@@ -14,19 +14,19 @@
 # ARG_OPTIONAL_SINGLE([container-registry],[c],[Base docker repo for the applicaition.],[gcr.io])
 # ARG_OPTIONAL_SINGLE([image-repository],[I],[Image repository for the applicaition.],[gke-verification/blackducksoftware])
 # ARG_OPTIONAL_SINGLE([default-container-version],[v],[Default container version],[master])
-# ARG_OPTIONAL_SINGLE([pcp-namespace],[n],[The namespace perceptor containers run in.],[nginx-webapp-logstash])
+# ARG_OPTIONAL_SINGLE([pcp-namespace],[n],[The namespace perceptor containers run in.],[perceptor])
 
-# ARG_OPTIONAL_SINGLE([hub-user],[U],[hub user],[master])
-# ARG_OPTIONAL_SINGLE([hub-password],[W],[hub password],[master])
-# ARG_OPTIONAL_SINGLE([hub-host],[H],[hub hostname ],[nginx-webapp-logstash])
-# ARG_OPTIONAL_SINGLE([hub-port],[P],[hub port ],[8443])
+# ARG_OPTIONAL_SINGLE([hub-user],[U],[hub user],[sysadmin])
+# ARG_OPTIONAL_SINGLE([hub-password],[W],[hub password],[])
+# ARG_OPTIONAL_SINGLE([hub-host],[H],[hub hostname ],[webserver])
+# ARG_OPTIONAL_SINGLE([hub-port],[P],[hub port ],[443])
 # ARG_OPTIONAL_SINGLE([hub-client-timeout-perceptor-seconds],[T],[hub client timeout for perceptor in seconds ],[5])
 # ARG_OPTIONAL_SINGLE([hub-client-timeout-scanner-seconds],[s],[hub client timeout for perceptor scanner in seconds ],[120])
 # ARG_OPTIONAL_SINGLE([hub-max-concurrent-scans],[C],[maximum scans at a time for the hub],[7])
 # ARG_OPTIONAL_SINGLE([container-default-cpu],[u],[All containers default cpu],[300m])
 # ARG_OPTIONAL_SINGLE([container-default-memory],[m],[All containers default memory],[1300Mi])
 # ARG_OPTIONAL_SINGLE([container-default-log-level],[l],[All containers default log level],[info])
-# ARG_OPTIONAL_SINGLE([prompt],[],[prompt for values rather then expecting them all at the command line],[off])
+# ARG_OPTIONAL_BOOLEAN([prompt],[],[prompt for values rather then expecting them all at the command line],[off])
 
 
 # ARG_HELP([The general script's help msg])
@@ -105,15 +105,15 @@ print_help ()
 	printf '\t%s\n' "--private-registry: A private registry url you will need to pull images for scan. (default: [\"docker-registry.default.svc:5000\"]). eg. [\"docker-registry.default.svc:5000\", \"172.1.1.0:5000\"]"
 	printf '\t%s\n' "-t,--private-registry-token: A private registry token to have access to pull images  (default: 'perceptor-scanner service account token')"
 	printf '\t%s\n' "-c,--container-registry: Base docker repo for the applicaition. (default: 'gcr.io')"
-	printf '\t%s\n' "-I,--image-repository: Image repository for the applicaition. (default: 'gke-verification/blackducksoftware ')"
+	printf '\t%s\n' "-I,--image-repository: Image repository for the applicaition. (default: 'gke-verification/blackducksoftware')"
 	printf '\t%s\n' "-v,--default-container-version: Default container version (default: 'master')"
-	printf '\t%s\n' "-n,--pcp-namespace: The namespace perceptor containers run in. (default: 'bds-perceptor')"
+	printf '\t%s\n' "-n,--pcp-namespace: The namespace perceptor containers run in. (default: 'perceptor')"
 	printf '\t%s\n' "-U,--hub-user: hub user (default: 'sysadmin')"
 	printf '\t%s\n' "-W,--hub-password: hub password"
 	printf '\t%s\n' "-H,--hub-host: hub hostname  (default: 'webserver')"
 	printf '\t%s\n' "-P,--hub-port: hub port  (default: '443')"
 	printf '\t%s\n' "-T,--hub-client-timeout-perceptor-seconds: hub client timeout for perceptor in seconds  (default: '5')"
-	printf '\t%s\n' "-s,--hub-client-timeout-scanner-seconds: hub client timeout for perceptor scanner in seconds  (default: '30')"
+	printf '\t%s\n' "-s,--hub-client-timeout-scanner-seconds: hub client timeout for perceptor scanner in seconds  (default: '120')"
 	printf '\t%s\n' "-C,--hub-max-concurrent-scans: maximum scans at a time for the hub (default: '7')"
 	printf '\t%s\n' "-u,--container-default-cpu: All container's default cpu (default: '300m')"
 	printf '\t%s\n' "-m,--container-default-memory: All container's default memory (default: '1300Mi')"
