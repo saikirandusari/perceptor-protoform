@@ -37,7 +37,8 @@ spec:
         args:
         - '--log.level=debug'
         - '--config.file=/etc/prometheus/prometheus.yml'
-        - '--storage.tsdb.path=/tmp/data/' 
+        - '--storage.tsdb.path=/tmp/data/'
+        - '--storage.tsdb.retention=120d'
         ports:
         - name: web
           containerPort: 9090
