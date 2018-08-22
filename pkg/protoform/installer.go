@@ -116,7 +116,7 @@ func (i *Installer) readConfig(configPath string) {
 	i.Config.HubUserPasswordEnvVar = "PCP_HUBUSERPASSWORD"
 	i.Config.ViperSecret = "viper-secret"
 
-	err = viper.ReadInConfig()
+	err := viper.ReadInConfig()
 	if err != nil {
 		log.Errorf("the input config file path is %s. unable to read the config file due to %+v! Using defaults for everything", configPath, err)
 	}
@@ -582,7 +582,7 @@ func (i *Installer) addPerceptorResources() {
 			DockerSocket:       true,
 			Port:               int32(i.Config.ImageFacadePort),
 			Cmd:                []string{"./perceptor-imagefacade"},
-			Arg:                []floatstr.FloatOrString{i.GenerateArg("/etc/perceptor_imagefacade/perceptor_imagefacade.yaml", 0)},
+			Arg:                []floatstr.FloatOrString{i.GenerateArg("/etc/perceptor_imagefacade/perceptor_imagefacade.json", 0)},
 			ServiceAccount:     i.Config.ServiceAccounts["perceptor-image-facade"],
 			ServiceAccountName: i.Config.ServiceAccounts["perceptor-image-facade"],
 			CPU:                defaultCPU,
