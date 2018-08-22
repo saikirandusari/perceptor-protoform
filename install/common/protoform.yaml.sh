@@ -82,7 +82,7 @@ items:
       ConcurrentScanLimit: "$_arg_hub_max_concurrent_scans"
       Namespace: "$_arg_pcp_namespace"
       Openshift: "$openshift"
-      InternalRegistries: '`echo "$(_arg_private_registry)"`'
+      InternalRegistries: '`echo "$_arg_private_registry"`'
       DefaultCPU: "$_arg_container_default_cpu"
       DefaultMem: "$_arg_container_default_memory"
 
