@@ -156,7 +156,7 @@ func (p *protoformConfig) toMap() map[string]map[string]string {
 		"perceptor":             {"perceptor.yaml": fmt.Sprint(`{"HubHost": "`, p.HubHost, `","HubPort": "`, p.HubPort, `","HubUser": "`, p.HubUser, `","HubUserPasswordEnvVar": "`, p.HubUserPasswordEnvVar, `","HubClientTimeoutSeconds": "`, p.HubClientTimeoutPerceptorSeconds, `","ConcurrentScanLimit": "`, p.ConcurrentScanLimit, `","Port": "`, p.PerceptorPort, `","LogLevel": "`, p.LogLevel, `"}`)},
 		"perceiver":             {"perceiver.yaml": fmt.Sprint(`{"PerceptorHost": "`, p.PerceptorImageName, `","PerceptorPort": "`, p.PerceptorPort, `","AnnotationIntervalSeconds": "`, p.AnnotationIntervalSeconds, `","DumpIntervalMinutes": "`, p.DumpIntervalMinutes, `","Port": "`, p.PerceiverPort, `","LogLevel": "`, p.LogLevel, `"}`)},
 		"perceptor-scanner":     {"perceptor_scanner.yaml": fmt.Sprint(`{"HubHost": "`, p.HubHost, `","HubPort": "`, p.HubPort, `","HubUser": "`, p.HubUser, `","HubUserPasswordEnvVar": "`, p.HubUserPasswordEnvVar, `","HubClientTimeoutSeconds": "`, p.HubClientTimeoutScannerSeconds, `","Port": "`, p.ScannerPort, `","PerceptorHost": "`, p.PerceptorImageName, `","PerceptorPort": "`, p.PerceptorPort, `","ImageFacadeHost": "`, p.ImageFacadeImageName, `","ImageFacadePort": "`, p.ImageFacadePort, `","LogLevel": "`, p.LogLevel, `"}`)},
-		"perceptor-imagefacade": {"perceptor_imagefacade.json": fmt.Sprint(`{"PrivateDockerRegistries": `, string(internalRegistry), `,"Port": "`, p.ImageFacadePort, `,"LogLevel": "`, p.LogLevel, `"}`)},
+		"perceptor-imagefacade": {"perceptor_imagefacade.json": fmt.Sprint(`{"PrivateDockerRegistries": `, string(internalRegistry), `,"Port": "`, p.ImageFacadePort, `","LogLevel": "`, p.LogLevel, `"}`)},
 	}
 
 	if p.PerceptorSkyfire {
