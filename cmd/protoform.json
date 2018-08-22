@@ -3,7 +3,7 @@
   "Openshift": "true",
   "DefaultCPU": "300m",
   "DefaultMem": "1300Mi",
-  "InternalDockerRegistries": ["docker-registry.default.svc:5000", "172.1.1.0:5000"],
+  "InternalRegistries": "[{\"Url\": \"docker-registry.default.svc:5000\", \"User\": \"admin\", \"Password\": \"dummy\"}]",
   "PerceptorSkyfire": "true",
   "HubUser": "sysadmin",
   "HubHost": "nginx-webapp-logstash",
@@ -12,7 +12,7 @@
   "Registry": "gcr.io",
   "ImagePath": "gke-verification/blackducksoftware",
   "Namespace": "perceptor",
-  "LogLevel": "info",
+  "LogLevel": "debug",
   "HubClientTimeoutPerceptorSeconds": 5,
   "HubClientTimeoutScannerSeconds": 120,
   "ConcurrentScanLimit": 7
