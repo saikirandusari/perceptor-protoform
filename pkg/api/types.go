@@ -62,7 +62,7 @@ type ConfigMapConfig struct {
 
 // RegistryAuth will store the Openshift Internal Registries
 type RegistryAuth struct {
-	Url      string
+	URL      string `json:"Url"`
 	User     string
 	Password string
 }
