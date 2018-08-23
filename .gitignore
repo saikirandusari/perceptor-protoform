@@ -2,3 +2,5 @@ install/kube/protoform.yaml
 install/kube/rbac.yaml
 install/openshift/protoform.yaml
 .DS_Store
+cmd/hub-installer/hub-installer
+cmd/hub-installer/opssight-deployer
