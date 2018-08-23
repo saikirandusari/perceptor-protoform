@@ -26,6 +26,7 @@ import (
 	"flag"
 	"fmt"
 	"math"
+	"os"
 	"path/filepath"
 	"reflect"
 	"time"
@@ -123,7 +124,11 @@ func (i *Installer) readConfig(configPath string) {
 
 	internalRegistry := []byte(viper.GetString("InternalRegistries"))
 	internalRegistries := make([]api.RegistryAuth, 0)
-	json.Unmarshal(internalRegistry, &internalRegistries)
+	err = json.Unmarshal(internalRegistry, &internalRegistries)
+	if err != nil {
+		log.Errorf("unable to marshal the internal registries due to %+v", err)
+		os.Exit(1)
+	}
 	log.Infof("internalRegistries: %+v", internalRegistries)
 	viper.Set("InternalRegistries", internalRegistries)
 
