@@ -79,6 +79,7 @@ _arg_developer_mode="off"
 _arg_skyfire="off"
 _arg_rhcc="off"
 _arg_docker_config_path="~/.docker/config.json"
+_arg_container_default_log_level="info"
 
 # Function that prints general usage of the script.
 # This is useful if users asks for it, or if there is an argument parsing error (unexpected / spurious arguments)
